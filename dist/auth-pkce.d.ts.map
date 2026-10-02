@@ -1,0 +1,1 @@
+{"version":3,"file":"auth-pkce.d.ts","sourceRoot":"","sources":["../src/auth-pkce.ts"],"names":[],"mappings":"AAAA;;GAEG;AACH,wBAAgB,eAAe,CAAC,MAAM,EAAE,UAAU,GAAG,MAAM,CAS1D;AAED;;;GAGG;AACH,wBAAsB,YAAY,IAAI,OAAO,CAAC;IAAE,QAAQ,EAAE,MAAM,CAAC;IAAC,SAAS,EAAE,MAAM,CAAA;CAAE,CAAC,CAsBrF"}

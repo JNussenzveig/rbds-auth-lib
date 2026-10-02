@@ -1,5 +1,5 @@
 {
-  "name": "rbds-auth-login",
+  "name": "@jnussenzveig/rbds-auth-login",
   "version": "1.0.0",
   "description": "A lib for handle authentication unified for rbds systems",
   "main": "./dist/index.js",
@@ -67,7 +67,7 @@
     "login",
     "react"
   ],
-  "author": "vitor-victor",
+  "author": "jean nussenzveig",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {

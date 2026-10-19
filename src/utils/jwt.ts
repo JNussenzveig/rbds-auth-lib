@@ -1,4 +1,4 @@
-import { Jwt } from "./types";
+import type { Jwt } from "../types";
 
 /**
  * Decodes the payload portion of a JWT token string.

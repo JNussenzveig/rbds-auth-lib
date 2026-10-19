@@ -5,7 +5,9 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "sideEffects": ["./dist/index.css"],
+  "sideEffects": [
+    "./dist/index.css"
+  ],
   "exports": {
     ".": {
       "import": {
@@ -19,32 +21,42 @@
     },
     "./auth": {
       "import": {
-        "types": "./dist/auth.d.ts",
+        "types": "./dist/services/auth.d.ts",
         "default": "./dist/auth.mjs"
       },
       "require": {
-        "types": "./dist/auth.d.ts",
+        "types": "./dist/services/auth.d.ts",
         "default": "./dist/auth.js"
       }
     },
     "./auth-pkce": {
       "import": {
-        "types": "./dist/auth-pkce.d.ts",
+        "types": "./dist/utils/auth-pkce.d.ts",
         "default": "./dist/auth-pkce.mjs"
       },
       "require": {
-        "types": "./dist/auth-pkce.d.ts",
+        "types": "./dist/utils/auth-pkce.d.ts",
         "default": "./dist/auth-pkce.js"
       }
     },
     "./jwt": {
       "import": {
-        "types": "./dist/jwt.d.ts",
+        "types": "./dist/utils/jwt.d.ts",
         "default": "./dist/jwt.mjs"
       },
       "require": {
-        "types": "./dist/jwt.d.ts",
+        "types": "./dist/utils/jwt.d.ts",
         "default": "./dist/jwt.js"
+      }
+    },
+    "./password-reset": {
+      "import": {
+        "types": "./dist/services/password-reset.d.ts",
+        "default": "./dist/password-reset.mjs"
+      },
+      "require": {
+        "types": "./dist/services/password-reset.d.ts",
+        "default": "./dist/password-reset.js"
       }
     },
     "./style.css": "./dist/index.css",
@@ -54,8 +66,11 @@
     "dist"
   ],
   "scripts": {
+    "dev": "vite",
+    "start": "vite",
+    "preview": "vite",
     "build": "tsup && tsc",
-    "dev": "tsup --watch"
+    "watch": "tsup --watch"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
@@ -73,9 +88,11 @@
   "devDependencies": {
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "tsup": "^8.5.1",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4"
   }
 }

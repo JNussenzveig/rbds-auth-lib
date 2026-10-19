@@ -309,10 +309,52 @@
   gap: 6px;
 }
 
+.rbds-login-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
 .rbds-login-label {
   font-size: 14px;
   font-weight: 500;
   color: var(--rbds-text-700);
+}
+
+.rbds-login-forgot {
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--rbds-orange);
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1.4;
+  transition: color var(--rbds-transition);
+}
+
+.rbds-login-forgot:hover:not(:disabled) {
+  color: var(--rbds-orange-hover);
+  text-decoration: underline;
+}
+
+.rbds-login-forgot:focus-visible {
+  outline: 2px solid var(--rbds-input-focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.rbds-login-forgot:disabled,
+.rbds-login-forgot.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  text-decoration: none;
 }
 
 .rbds-login-input-wrapper {
@@ -481,6 +523,228 @@
 
   80% {
     transform: translateX(2px);
+  }
+}
+
+/* ── Password reset additions ───────────────── */
+
+/* Success alert */
+.rbds-login-success {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  border-radius: var(--rbds-radius);
+  background: rgba(34, 197, 94, 0.07);
+  color: #15803d;
+  font-size: 14px;
+  line-height: 1.55;
+  animation: rbds-fade-in 0.3s ease-out;
+}
+
+.rbds-login-success svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.rbds-login-success-title {
+  font-weight: 600;
+  color: #166534;
+  margin-bottom: 2px;
+}
+
+/* 6-character OTP Code Input (3 + 3 with underline) */
+.rbds-otp-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin: 6px 0 10px;
+}
+
+.rbds-otp-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rbds-otp-slot {
+  width: 44px;
+  height: 52px;
+  text-align: center;
+  font-family: "SFMono-Regular", Menlo, Consolas, "Courier New", monospace;
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--rbds-text-900);
+  background: var(--rbds-input-bg);
+  border: none;
+  border-bottom: 3px solid var(--rbds-card-border);
+  border-radius: 6px 6px 0 0;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color var(--rbds-transition), background-color var(--rbds-transition);
+}
+
+.rbds-otp-slot:focus {
+  border-bottom-color: var(--rbds-orange);
+  background: rgba(245, 130, 31, 0.06);
+}
+
+.rbds-otp-slot.filled {
+  border-bottom-color: var(--rbds-text-700);
+}
+
+.rbds-otp-slot.filled:focus {
+  border-bottom-color: var(--rbds-orange);
+}
+
+.rbds-otp-slot:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 420px) {
+  .rbds-otp-slot {
+    width: 36px;
+    height: 48px;
+    font-size: 19px;
+  }
+  .rbds-otp-container {
+    gap: 4px;
+  }
+  .rbds-otp-group {
+    gap: 4px;
+  }
+}
+
+/* Hint text */
+.rbds-login-hint {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--rbds-text-500);
+}
+
+.rbds-login-hint--error {
+  color: var(--rbds-destructive);
+  margin-top: -8px;
+}
+
+/* Password rules checklist */
+.rbds-password-rules {
+  list-style: none;
+  display: grid;
+  gap: 6px 12px;
+  margin-top: -6px;
+  font-size: 12px;
+  color: var(--rbds-text-500);
+}
+
+.rbds-password-rules li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color var(--rbds-transition);
+}
+
+.rbds-password-rule-dot {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--rbds-card-border);
+  transition: background var(--rbds-transition), box-shadow var(--rbds-transition);
+}
+
+.rbds-password-rules li.is-valid {
+  color: #15803d;
+}
+
+.rbds-password-rules li.is-valid .rbds-password-rule-dot {
+  background: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+}
+
+@media (max-width: 420px) {
+  .rbds-password-rules {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Secondary (ghost) button */
+.rbds-login-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--rbds-card-border);
+  border-radius: var(--rbds-radius);
+  background: transparent;
+  color: var(--rbds-text-700);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--rbds-transition), border-color var(--rbds-transition);
+}
+
+.rbds-login-secondary:hover:not(:disabled) {
+  background: var(--rbds-bg);
+  border-color: var(--rbds-text-400);
+}
+
+.rbds-login-secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Back to login link */
+.rbds-login-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  align-self: center;
+  margin-top: 4px;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--rbds-text-500);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color var(--rbds-transition);
+}
+
+.rbds-login-back:hover {
+  color: var(--rbds-orange-dark);
+}
+
+.rbds-login-back svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Step transition */
+.rbds-login-step {
+  animation: rbds-fade-in 0.3s ease-out;
+}
+
+@keyframes rbds-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
